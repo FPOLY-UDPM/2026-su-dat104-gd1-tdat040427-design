@@ -1,0 +1,26 @@
+SELECT TOP 1
+ SELECT [first_name],[last_name],[state]
+      --,[first_name]
+      --,[last_name]
+      --,[phone]
+      --,[email]
+      --,[street]
+      --,[city]
+      --,[state]
+      --,[zip_code]
+  FROM [BikeStores].[sales].[customers]
+  where state = 'NY'
+  order by first_name asc;
+  --câu 1
+  SELECT city, COUNT(*) AS total_customers
+FROM [BikeStores].[sales].[customers]
+WHERE state = 'NY'
+GROUP BY city
+HAVING COUNT(*) >= 10
+ORDER BY city DESC;
+--câu 2
+SELECT YEAR(order_date) AS year_order,
+       COUNT(*) AS total_orders
+FROM [BikeStores].[sales].[orders]
+GROUP BY YEAR(order_date);
+--cau 3
