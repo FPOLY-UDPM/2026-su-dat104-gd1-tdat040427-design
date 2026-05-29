@@ -1,0 +1,38 @@
+SELECT [first_name],[last_name]
+      --,[first_name]
+      --,[last_name]
+      --,[phone]
+      --,[email]
+      --,[street]
+      --,[city]
+      --,[state]
+      --,[zip_code]
+  FROM [BikeStores].[sales].[customers]
+  WHERE first_name LIKE 'W%'
+   OR first_name LIKE '%a';
+   --câu 1
+   SELECT [product_name],[list_price]
+      --,[product_name]
+      --,[brand_id]
+      --,[category_id]
+      --,[model_year]
+      --,[list_price]
+  FROM [BikeStores].[production].[products]
+  where [model_year] = 2018
+  and [list_price]>1000;
+  --cau 2 
+ SELECT YEAR(order_date) AS year_order,
+       MONTH(order_date) AS month_order,
+       COUNT(*) AS total_orders
+      --,[customer_id]
+      --,[order_status]
+      --,[order_date]
+      --,[required_date]
+      --,[shipped_date]
+      --,[store_id]
+      --,[staff_id]
+  FROM [BikeStores].[sales].[orders]
+  WHERE order_date BETWEEN '2016-02-01' AND '2017-02-28'
+GROUP BY YEAR(order_date), MONTH(order_date)
+ORDER BY total_orders DESC;
+--câu 3
